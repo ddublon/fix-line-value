@@ -40,7 +40,7 @@ const generateYAxisObjects = (count, wasmContext) => {
   const yAxisObjects = [];
   for (let i = 1; i <= count; i++) {
     const yAxisId = `yAxis${i}`;
-    const visibleRangeStart = (i - 1) * 0.1;
+    const visibleRangeStart = (i - 0.1) * 0.1;
     const visibleRangeEnd = i * 0.1;
     const yAxis = new NumericAxis(wasmContext, {
       id: yAxisId,
@@ -78,7 +78,6 @@ const addRenderableSeriesWithDynamicYAxis = (
         dataSeries,
         pointMarker: new EllipsePointMarker(wasmContext, {
           ...pointMarkerOptions,
-          // stroke: "pink",
         }),
       })
     );
@@ -185,7 +184,7 @@ export default function Chart({ numGraphs }) {
       const res = await drawExample(numGraphs);
       sciChartSurfaceRef.current = res.sciChartSurface;
       controlsRef.current = res.controls;
-      autoStartTimerId = setTimeout(res.controls.handleStart, 0);
+      // autoStartTimerId = setTimeout(res.controls.handleStart, 0);
       return res;
     };
     const chartInitializationPromise = chartInitialization();
@@ -212,6 +211,12 @@ export default function Chart({ numGraphs }) {
   return (
     <>
       <div style={{ width: "100%", height: "100%" }} id={divElementId}></div>
+      <button onClick={() => controlsRef.current?.handleStart()}>
+        Start Timer
+      </button>
+      <button onClick={() => controlsRef.current?.handleStop()}>
+        Stop Timer
+      </button>
     </>
   );
 }

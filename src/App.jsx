@@ -1,6 +1,7 @@
 import GreenLine from "./GreenLine";
 import "./App.css";
 import Chart from "./Chart";
+import PurpleLine from "./PurpleLine";
 
 const App = () => {
   let maxRange = 0.93853465;
@@ -16,6 +17,7 @@ const App = () => {
     >
       <Chart numGraphs={1} />
       <GreenLine maxRange={maxRange} minRange={minRange} />
+      <PurpleLine maxRange={maxRange} minRange={minRange} />
     </div>
   );
 };

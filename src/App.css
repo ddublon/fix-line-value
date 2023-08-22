@@ -2,10 +2,20 @@
   position: relative;
 }
 
+.dragedLineToolTip.green::before,
+.dragedLineToolTip.green::after {
+  --tooltip-color: #26e020;
+}
+
+.dragedLineToolTip.purple::before,
+.dragedLineToolTip.purple::after {
+  --tooltip-color: #c720e0;
+}
+
 .dragedLineToolTip::before,
 .dragedLineToolTip::after {
   --scale: 0;
-  --tooltip-color: #26e020;
+
   --arrow-size: 10px;
   position: absolute;
   top: -0.25rem;

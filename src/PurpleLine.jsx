@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Draggable from "react-draggable";
 
 const Line = styled.div`
-  border-top: 2px dashed #26e020 !important;
+  height: 1px;
+  border-top: 2px solid #c720e0 !important;
   width: 100%;
   z-index: 2;
   position: absolute;
@@ -11,8 +12,8 @@ const Line = styled.div`
   cursor: grab;
 `;
 
-const GreenLine = ({ maxRange, minRange }) => {
-  const defaultPosition = 370;
+const PurpleLine = ({ maxRange, minRange }) => {
+  const defaultPosition = 150;
 
   const nodeRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -44,7 +45,7 @@ const GreenLine = ({ maxRange, minRange }) => {
       onDrag={(e, data) => handleDrag(e, data)}
     >
       <Line
-        className={`dragedLineToolTip green ${isDragging ? "dragging" : ""}`}
+        className={`dragedLineToolTip purple ${isDragging ? "dragging" : ""}`}
         data-tooltip={`Y: ${yValue}`}
         ref={nodeRef}
         onMouseEnter={() => console.log("hovered")}
@@ -53,4 +54,4 @@ const GreenLine = ({ maxRange, minRange }) => {
   );
 };
 
-export default GreenLine;
+export default PurpleLine;
