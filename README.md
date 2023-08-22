@@ -1,6 +1,7 @@
 clone the project
 
-``` npm i
+```
+ npm i
 ```
 
 ```
